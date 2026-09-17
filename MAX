@@ -1,0 +1,46 @@
+local currentPlaceId = tostring(game.PlaceId)
+
+local function showWelcomeUI(message)
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.Name = "VerificationUI"
+    screenGui.Parent = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+
+    local frame = Instance.new("Frame")
+    frame.Size = UDim2.new(0, 300, 0, 70)
+    frame.Position = UDim2.new(0.5, -150, 0.15, 0)
+    frame.BackgroundColor3 = Color3.fromRGB(15, 15, 20)
+    frame.BorderSizePixel = 0
+    frame.Parent = screenGui
+
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 8)
+    corner.Parent = frame
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Size = UDim2.new(1, 0, 1, 0)
+    textLabel.Text = message
+    textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    textLabel.TextSize = 18
+    textLabel.Font = Enum.Font.SourceSansBold
+    textLabel.BackgroundTransparency = 1
+    textLabel.Parent = frame
+
+    task.delay(2, function()
+        screenGui:Destroy()
+    end)
+end
+
+if currentPlaceId == "75012837977315" then
+    showWelcomeUI("تم التحقق بنجاح!")
+    task.wait(1)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/MAX715a/A/refs/heads/main/MAXXX"))()
+
+elseif currentPlaceId == "93411036959889" then
+    showWelcomeUI("تم التحقق بنجاح!")
+    task.wait(1)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/MAX715a/MAX-A-R-S/refs/heads/main/MAX%20A%20R%20S"))()
+
+else
+    showWelcomeUI("الأيدي غير مطابّق!")
+    warn("آيدي الماب الحالي غير مدعوم: " .. currentPlaceId)
+end
